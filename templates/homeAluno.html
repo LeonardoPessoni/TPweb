@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/homeAluno.css">
+  <title>Escola XYZ</title>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Escola XYZ</h1>
+      <p>Área do Aluno</p>
+
+      <ul>
+        <li><a>Aluno: {{ aluno[1] }}</a></li>
+        <li><a>CPF: {{ aluno[2] }}</a></li>
+      </ul>
+    </div>
+
+    <div class="voltar">
+      <a href="/login">Sair</a>
+    </div>
+
+  </header>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Materia</th>
+          <th>1º Bimestre</th>
+          <th>2º Bimestre</th>
+          <th>3º Bimestre</th>
+          <th>4º Bimestre</th>
+          <th>Média Final</th>
+        </tr>
+      </thead>
+      <!-- pegando a materia e deixando com dois numero apos a virgula -->
+      <!-- Somando as 4 notas -->
+      <!-- Vendo quantas notas tem -->
+      <!-- Dividindo o valor da soma pela quantidade de notas -->
+      <tbody id="table-body">
+        {% for materia in materias %}
+        <tr>
+          <td>{{ materia[0]}}</td>
+          <td class="center">{{ materia[1]|round(2) }}</td>
+          <td class="center">{{ materia[2]|round(2) }}</td>
+          <td class="center">{{ materia[3]|round(2) }}</td>
+          <td class="center">{{ materia[4]|round(2) }}</td>
+          <td class="center">
+            {% set soma = (materia[1]) +
+            (materia[2]) +
+            (materia[3]) +
+            (materia[4]) %}
+            {{ (soma / 4)|round(2) }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

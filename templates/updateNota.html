@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/cadastrar.css">
+  <title>Escola XYZ</title>
+
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Escola XYZ</h1>
+      <p>Área do Funcionário</p>
+    </div>
+  </header>
+
+  <form class="container" action="/updateNota" method="post">
+    <h2>Atualizar Notas</h2>
+    <br>
+    1ºBimestre: <input type="text" name="nota1" value="{{ nota[3] }}" required /><br />
+    2ºBimestre: <input type="text" name="nota2" value="{{ nota[4] }}" required /><br />
+    3ºBimestre: <input type="text" name="nota3" value="{{ nota[5] }}" required />
+    4ºBimestre: <input type="text" name="nota4" value="{{ nota[6] }}" required />
+    <input type="hidden" name="id" value="{{ nota[0] }}" />
+    <input type="submit" value="Atualizar" />
+  </form>
+</body>
+
+</html>

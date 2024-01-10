@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    position: relative;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: "";
+    background-image: url(/static/image/fachada.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+header,
+nav {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+header {
+    background: linear-gradient(to bottom, #c05c5c, #a82d2d);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: #882424;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul .center {
+    margin-left: -140px;
+    position: absolute;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 3px #fff;
+}
+
+.login-option a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.login-option {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(209, 21, 68);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.login-option:hover {
+    background-color: rgb(83, 0, 0);
+    transform: scale(1.1);
+}
+
+.login-option:hover a {
+    text-decoration: none;
+    color: #fff;
+}
+
+input {
+    width: 240px;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+}
+
+#home-icon {
+    position: absolute;
+    top: center;
+    left: 20px;
+}
+
+#home-icon i {
+    font-size: 20px;
+    color: #fff;
+}
+
+#home-icon:hover i {
+    transform: scale(1.2);
+}
+
+#carrosel-container {
+    position: relative;
+    margin: 10px auto;
+    z-index: 1;
+}
+
+#carrosel {
+    display: inline-flex;
+    transition: transform 0.5s ease;
+}
+
+.carrosel-item {
+    align-items: center;
+    width: 980px;
+    height: 400px;
+    padding: 10px;
+}
+
+#carrosel-prev-btn,
+#carrosel-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border: solid #fff;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#carrosel-prev-btn:hover,
+#carrosel-next-btn:hover {
+    border-color: #bfbfbf;
+}
+
+#carrosel-prev-btn {
+    left: 20px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+#carrosel-next-btn {
+    right: 20px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+section {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    box-shadow: 7px 7px 8px #5a5959;
+    overflow: hidden;
+}
+
+footer {
+    background-color: #882424;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #555;
+}
+
+.carrosel-teste {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    box-shadow: 7px 7px 8px #5a5959;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+    nav ul .center {
+        margin-left: 0;
+        position: relative;
+        display: block;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #carrosel-container {
+        margin: 10px auto;
+    }
+
+    .carrosel-item {
+        width: 100%;
+        height: auto;
+    }
+
+    #carrosel-prev-btn,
+    #carrosel-next-btn {
+        top: 40%;
+    }
+
+    section {
+        padding: 10px;
+    }
+}

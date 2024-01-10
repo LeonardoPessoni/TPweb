@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/cadastrar.css">
+    <title>Escola XYZ</title>
+    
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Escola XYZ</h1>
+            <p>Área do Funcionário</p>
+        </div>
+    </header>
+
+    <form class="container" action="/cadastroNota" method="post">
+        <h2>Cadastrar Notas</h2>
+        <br>
+        Nome do Aluno: <select name="nome" aria-label="Selecione o Aluno" required>
+            <option selected value="">Selecione o Aluno</option>
+            {% for aluno in alunos %}
+            <option value="{{ aluno[0] }}">{{ aluno[1] }}</option>
+            {% endfor %}
+        </select><br />
+        Materia: <select name="materia" aria-label="Selecione a Matéria" required>
+            <option selected value="">Selecione a Matéria</option>
+            {% for materia in materias %}
+            <option value="{{ materia[0] }}">{{ materia[1] }}</option>
+            {% endfor %}
+        </select><br />
+        Nota1: <input type="text" name="nota1" required oninput="substituir(this)" /><br />
+        Nota2: <input type="text" name="nota2" required oninput="substituir(this)" /><br />
+        Nota3: <input type="text" name="nota3" required oninput="substituir(this)" /><br />
+        Nota4: <input type="text" name="nota4" required oninput="substituir(this)" /><br />
+        <input type="submit" value="Cadastrar" />
+    </form>
+</body>
+
+</html>

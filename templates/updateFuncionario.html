@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/cadastrar.css">
+  <title>Escola XYZ</title>
+
+  {% if message %}
+  <script>
+    alert("{{ message }}");
+    window.location.href = "/updateFuncionario"; 
+  </script>
+  {% endif %}
+  
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Escola XYZ</h1>
+      <p>Área do Funcionário</p>
+    </div>
+  </header>
+
+  <form class="container" action="/updateFuncionario" method="post">
+    <h2>Atualizar Aluno</h2>
+    <br>
+    Nome: <input type="text" name="nome" value="{{ funcionario[1] }}" required /><br />
+    Email: <input type="email" name="email" value="{{ funcionario[2] }}" required /><br />
+    CPF: <input type="text" name="cpf" value="{{ funcionario[3] }}" required /><br />
+    Usuário: <input type="text" name="login" value="{{ funcionario[4] }}" required /><br />
+    Senha: <input type="password" name="senha" value="{{ funcionario[5] }}" required />
+    <input type="hidden" name="id" value="{{ funcionario[0] }}" />
+    <input type="submit" value="Atualizar" />
+  </form>
+</body>
+
+</html>

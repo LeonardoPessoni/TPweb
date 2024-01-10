@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/principal.css">
+    <title>Escola XYZ</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Escola XYZ</h1>
+            <p>Transformando vidas por meio da educação.</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/" id="home-icon"><i class="fas fa-home"></i></a></li>
+
+            <div class="center">
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </div>
+
+            <div class="login-option">
+                <a href="/login">Sign</a>
+            </div>
+        </ul>
+    </nav>
+
+    <section class="carrosel-teste">
+        <div id="carrosel-container">
+            <div id="carrosel">
+                <img class="carrosel-item" src="/static/image/fachada.jpg">
+                <img class="carrosel-item" src="/static/image/sala.jpg">
+                <img class="carrosel-item" src="/static/image/quadra.png">
+                <img class="carrosel-item" src="/static/image/lanchonete.jpg">
+                <img class="carrosel-item" src="/static/image/lab ti.jpeg">
+                <img class="carrosel-item" src="/static/image/lab robotica.jpg">
+                <img class="carrosel-item" src="/static/image/biblioteca.jpg">
+            </div>
+
+            <span id="carrosel-prev-btn"></span>
+            <span id="carrosel-next-btn"></span>
+        </div>
+    </section>
+
+    <section id="cursos">
+        <h2>Nossos Cursos</h2>
+        <p>Explore nossa variedade de cursos que preparam os alunos para o sucesso.</p>
+        <p>Oferecemos uma ampla variedade de programas projetados para atender às diversas necessidades e paixões dos nossos alunos. Explore o mundo do conhecimento através dos seguintes cursos:</p>
+        <p><a href="#">Exploração Científica Junior</a></p>
+        <p><a href="#"> Criativas e Expressão</a></p>
+        <p><a href="#">Tecnologia Avançada para o Século XXI</a></p>
+        <p><a href="#">Humanidades Interculturais</a></p>
+    </section>
+
+    <section id="eventos">
+        <h2>Próximos Eventos</h2>
+        <p>Fique atualizado com nossos eventos educacionais e atividades emocionantes.</p>
+        <p>Explore o excitante mundo dos eventos que estão prestes a acontecer em nossa escola. Estamos dedicados a proporcionar experiências enriquecedoras que vão além da sala de aula. Confira o nosso calendário de próximos eventos e participe das seguintes atividades:</p>
+        <p><a href="#">Feira de Ciências e Inovação</a></p>
+        <p><a href="#">Festival Cultural Global</a></p>
+        <p><a href="#">Semana da Sustentabilidade</a></p>
+        <p><a href="#">Competição de Robótica Interescolar</a></p>
+        <p><a href="#">Noite das Artes</a></p>
+    </section>
+
+    <section id="galeria">
+        <h2>Galeria de Fotos</h2>
+        <p>Veja fotos emocionantes de eventos passados e realizações dos alunos.</p>
+        <p>Explore a riqueza de momentos vividos em nossa escola por meio da nossa Galeria. Cada imagem conta uma história, cada foto captura a essência da nossa jornada educativa. Navegue por nossa coleção visual e mergulhe nas seguintes categorias cativantes:</p>
+        <p><a href="#">Científica Junior</a></p>
+        <p><a href="#">Artes Criativas e Expressão</a></p>
+        <p><a href="#">Tecnologia Avançada para o Século XXI</a></p>
+        <p><a href="#">Humanidades Interculturais</a></p>
+    </section>
+
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+        <p>Estamos aqui para responder às suas perguntas. Entre em contato conosco.</p>
+        <p>Estamos ansiosos para ouvir de você! Nossa equipe está dedicada a fornecer informações, esclarecer dúvidas e construir uma parceria educativa sólida com pais, alunos e membros da comunidade. Não hesite em entrar em contato conosco para qualquer pergunta ou necessidade. Aqui estão algumas maneiras de nos alcançar:</p>
+        <p>Formulário Online:<a href="#"> Responda o formulário</a></p>
+        <p>E-mail: escolaxyz@educacao.com.br</p>
+        <p>Telefone: (XX)XXXX-XXXX</p>
+        <p>Visita Pessoal: <a href="#"> Agende sua visita</a></p>
+    </section>
+
+    <footer>
+        <p>Escola XYZ &copy; 2023. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const carroselContainer = document.getElementById("carrosel-container")
+        const carrosel = document.getElementById("carrosel")
+
+        const items = document.getElementsByClassName("carrosel-item")
+
+        const prevButton = document.getElementById("carrosel-prev-btn")
+        const nextButton = document.getElementById("carrosel-next-btn")
+
+        const totalItems = items.length - 1
+        const itemWidth = items[0].clientWidth
+
+        let currIdx = 0
+
+        carroselContainer.style.width = `${itemWidth}px`
+        prevButton.style.display = "none"
+
+        function hideOrShowButton() {
+            if (currIdx == totalItems) {
+                nextButton.style.display = "none"
+                return
+            }
+
+            if (currIdx == 0) {
+                prevButton.style.display = "none"
+                return
+            }
+            nextButton.style.display = "block"
+            prevButton.style.display = "block"
+        }
+
+        function showPreviusSlide() {
+            currIdx = currIdx-- == 0 ? 0 : currIdx--
+            hideOrShowButton()
+
+            const translate = `-${itemWidth * (currIdx + 1) - itemWidth}`
+
+            carrosel.style.transform = `translateX(${translate}px)`
+        }
+
+        function showNextSlide() {
+            currIdx = currIdx++ >= totalItems ? totalItems : currIdx++
+            hideOrShowButton()
+
+            carrosel.style.transform = `translateX(-${itemWidth * currIdx}px)`
+        }
+
+        prevButton.addEventListener("click", showPreviusSlide)
+        nextButton.addEventListener("click", showNextSlide)
+    </script>
+</body>
+
+</html>

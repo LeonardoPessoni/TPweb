@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <title>Escola XYZ</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in-academico">
+            <form action="/loginSecretario" method="post">
+                <h1>Login Acadêmico</h1>
+                <input type="text" name="loginAcademico" placeholder="Usuario">
+                <input type="password" name="senha" placeholder="Senha">
+                <a href="#">Esqueceu a senha?</a>
+                <p class="checked">
+                    <span>
+                        Ao continuar, declaro que estou ciente dos
+                        <a href="#">Termos de Uso</a>
+                        e da
+                        <a href="#">Política de Privacidade</a>
+                        da XYZ Escola
+                    </span>
+                </p>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="/loginAluno" method="post">
+                <h1>Login Aluno</h1>
+                <input type="text" name="cpf" id="cpf" placeholder="CPF" oninput="formatarCPF()">
+                <input type="password" name="senha1" placeholder="Senha">
+                <a href="#">Esqueceu a senha?</a>
+                <p class="checked">
+                    <span>
+                        Ao continuar, declaro que estou ciente dos
+                        <a class="eva-link-azul" href="#" target="_blank">Termos de Uso</a>
+                        e da
+                        <a class="eva-link-azul" href="#" target="_blank">Política de Privacidade</a>
+                        da XYZ Escola
+                    </span>
+                </p>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bem vindo!</h1>
+                    <p>Insira seu email e senha para usar a Home da Secretária Acadêmica</p>
+                    <p>ou</p>
+                    <button class="hidden" id="login">Login Aluno</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Olá amigo!</h1>
+                    <p>Insira seu CPF e senha para usar a Home de Aluno</p>
+                    <p>ou</p>
+                    <button class="hidden" id="register">Login Acadêmico</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const container = document.getElementById('container');
+        const registerBtn = document.getElementById('register');
+        const loginBtn = document.getElementById('login');
+
+        registerBtn.addEventListener('click', () => {
+            container.classList.add("active");
+        });
+
+        loginBtn.addEventListener('click', () => {
+            container.classList.remove("active");
+        });
+
+        function formatarCPF() {
+            // Obtém o valor atual do campo CPF
+            let cpfInput = document.getElementById('cpf');
+            let cpfValue = cpfInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+            // Formata o CPF (xxx.xxx.xxx-xx)
+            cpfValue = cpfValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+
+            // Atualiza o valor do campo CPF
+            cpfInput.value = cpfValue;
+        }
+    </script>
+</body>
+
+</html>
